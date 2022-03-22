@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   
+    string inputString="";
+    string wordOne;
+    string wordTwo;
+    
+    while(inputString != "q"){
+    cout<<"Enter input string:"<<endl;
+    getline(cin,inputString);
+    
+    while (inputString.find(',')==string::npos && inputString != "q"){
+       cout<<"Error: No comma in string."<<endl<<endl;
+       cout<<"Enter input string:"<<endl;
+       getline(cin,inputString);
+    }
+    if(inputString == "q"){
+     return 1;  
+    }
+    
+    int commaLoc =inputString.find(',');
+    wordOne = inputString.substr(0,commaLoc);
+    wordTwo = inputString.substr(commaLoc+1);
+    cout << "First word: ";
+    for (int i = 0; i < wordOne.size(); i++){
+     if (!isspace(wordOne.at(i))){
+      cout<< wordOne.at(i);
+     }
+    }
+    
+    cout<<endl;
+    
+    cout << "Second word: ";
+    for (int i = 0; i < wordTwo.size(); i++){
+     if (!isspace(wordTwo.at(i))){
+      cout<< wordTwo.at(i);
+     }
+    }
+    
+    cout<<endl<<endl;
+}
+   return 0;
+}
